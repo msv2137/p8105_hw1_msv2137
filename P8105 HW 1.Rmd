@@ -7,17 +7,37 @@ output:
     df_print: paged
 ---
 
-This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
-
-Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter*. 
-
-```{r}
-plot(cars)
+```{r, include = FALSE}
+library(tidyverse)
 ```
 
-Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
+## Problem 1
 
-When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file). 
+### set up data frame
+```{r}
+set.seed(1)
+data_frame = tibble(
+  vec_numeric = rnorm(10),
+  vec_logical = vec_numeric > 0,
+  vec_char = c("a", "b", "c", "d", "e", "f", "g", "h", "i", "j"),
+  vec_factor = factor(c("single", "married", "divorced", "married", "divorced", "single", "single", "divorced", "married", "single"))
+)
+```
+### take means
 
-The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+```{r}
+mean(pull(data_frame, 1)) #mean of numeric vector
+mean(pull(data_frame, 2)) #mean of logical vector
+mean(pull(data_frame, 3)) #mean of character vector
+mean(pull(data_frame, 4)) #mean of factor vector
+```
+The mean function worked on the numeric and logical vectors. It didn't work of the character and factor vectors as NA was returned. 
+
+### changing to numeric
+```{r, eval=FALSE}
+as.numeric(pull(data_frame, 2)) #changing the logical vector to numeric
+as.numeric(pull(data_frame, 3)) #changing the character vector to numeric
+as.numeric(pull(data_frame, 4)) #changing the factor vector to numeric
+```
+The as.numeric() function worked on the logical vector and the factor vector. For logical vectors the function converts 'TRUE' to '1' and 'FALSE' TO '0', respectively, which explains why the mean() function worked. For the factor vector the as.numeric() function assigns each factor level a number and converts the respective level to the respective number. 
 
