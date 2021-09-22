@@ -41,3 +41,13 @@ as.numeric(pull(data_frame, 4)) #changing the factor vector to numeric
 ```
 The as.numeric() function worked on the logical vector and the factor vector. For logical vectors the function converts 'TRUE' to '1' and 'FALSE' TO '0', respectively, which explains why the mean() function worked. For the factor vector the as.numeric() function assigns each factor level a number and converts the respective level to the respective number. 
 
+## Problem 2
+
+```{r}
+install.packages("palmerpenguins")
+```
+
+```{r}
+data("penguins", package = "palmerpenguins")
+```
+
