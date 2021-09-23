@@ -13,7 +13,7 @@ library(tidyverse)
 
 ## Problem 1
 
-### set up data frame
+### Set up dataframe
 ```{r}
 set.seed(1)
 data_frame = tibble(
@@ -22,8 +22,9 @@ data_frame = tibble(
   vec_char = c("a", "b", "c", "d", "e", "f", "g", "h", "i", "j"),
   vec_factor = factor(c("single", "married", "divorced", "married", "divorced", "single", "single", "divorced", "married", "single"))
 )
+data_frame
 ```
-### take means
+### Means of each variable in dataframe
 
 ```{r}
 mean(pull(data_frame, 1)) #mean of numeric vector
@@ -39,7 +40,7 @@ as.numeric(pull(data_frame, 2)) #changing the logical vector to numeric
 as.numeric(pull(data_frame, 3)) #changing the character vector to numeric
 as.numeric(pull(data_frame, 4)) #changing the factor vector to numeric
 ```
-The as.numeric() function worked on the logical vector and the factor vector. For logical vectors the function converts 'TRUE' to '1' and 'FALSE' TO '0', respectively, which explains why the mean() function worked. For the factor vector the as.numeric() function assigns each factor level a number and converts the respective level to the respective number. 
+The as.numeric() function worked on the logical vector and the factor vector. For logical vectors the function converts 'TRUE' to '1' and 'FALSE' to '0', respectively, which explains why the mean() function worked. For the factor vector the as.numeric() function assigns each factor level a number and converts the respective level to the respective number. 
 
 ## Problem 2
 
@@ -57,8 +58,9 @@ data("penguins", package = "palmerpenguins")
 head(penguins)
 penguins$species
 penguins$island
+
 ```
-The penguins dataset contains `nrow(penguins)` rows and `ncol(penguins)` columns. Some of the important variables include the species, island, bill length and depth, flipper length, the body mass and the sex. The islands included in this dataset are "Torgensen," "Dream," and "Biscoe." The species included are "Adelie," "Chinstrap," and "Gentoo." The mean flipper length of penguins in this dataset is `mean(penguins$flipper_length_mm, na.rm=T)`
+The penguins dataset contains `r nrow(penguins)` rows and `r ncol(penguins)` columns. Some of the important variables include the species, island, bill length and depth, flipper length, the body mass and the sex. The islands included in this dataset are "Torgensen," "Dream," and "Biscoe." The species included are "Adelie," "Chinstrap," and "Gentoo." The mean flipper length of penguins in this dataset is `r mean(penguins$flipper_length_mm, na.rm=T)`
 
 ### scatterplot
 ```{r}
