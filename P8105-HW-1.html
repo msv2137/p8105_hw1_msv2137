@@ -176,18 +176,24 @@ pre code {
 
 <div id="problem-1" class="section level2">
 <h2>Problem 1</h2>
-<div id="set-up-data-frame" class="section level3">
-<h3>set up data frame</h3>
+<div id="set-up-dataframe" class="section level3">
+<h3>Set up dataframe</h3>
 <pre class="r"><code>set.seed(1)
 data_frame = tibble(
   vec_numeric = rnorm(10),
   vec_logical = vec_numeric &gt; 0,
   vec_char = c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;, &quot;g&quot;, &quot;h&quot;, &quot;i&quot;, &quot;j&quot;),
   vec_factor = factor(c(&quot;single&quot;, &quot;married&quot;, &quot;divorced&quot;, &quot;married&quot;, &quot;divorced&quot;, &quot;single&quot;, &quot;single&quot;, &quot;divorced&quot;, &quot;married&quot;, &quot;single&quot;))
-)</code></pre>
+)
+data_frame</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["vec_numeric"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["vec_logical"],"name":[2],"type":["lgl"],"align":["right"]},{"label":["vec_char"],"name":[3],"type":["chr"],"align":["left"]},{"label":["vec_factor"],"name":[4],"type":["fct"],"align":["left"]}],"data":[{"1":"-0.6264538","2":"FALSE","3":"a","4":"single"},{"1":"0.1836433","2":"TRUE","3":"b","4":"married"},{"1":"-0.8356286","2":"FALSE","3":"c","4":"divorced"},{"1":"1.5952808","2":"TRUE","3":"d","4":"married"},{"1":"0.3295078","2":"TRUE","3":"e","4":"divorced"},{"1":"-0.8204684","2":"FALSE","3":"f","4":"single"},{"1":"0.4874291","2":"TRUE","3":"g","4":"single"},{"1":"0.7383247","2":"TRUE","3":"h","4":"divorced"},{"1":"0.5757814","2":"TRUE","3":"i","4":"married"},{"1":"-0.3053884","2":"FALSE","3":"j","4":"single"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
 </div>
-<div id="take-means" class="section level3">
-<h3>take means</h3>
+</div>
+<div id="means-of-each-variable-in-dataframe" class="section level3">
+<h3>Means of each variable in dataframe</h3>
 <pre class="r"><code>mean(pull(data_frame, 1)) #mean of numeric vector</code></pre>
 <pre><code>## [1] 0.1322028</code></pre>
 <pre class="r"><code>mean(pull(data_frame, 2)) #mean of logical vector</code></pre>
@@ -207,7 +213,7 @@ data_frame = tibble(
 <pre class="r"><code>as.numeric(pull(data_frame, 2)) #changing the logical vector to numeric
 as.numeric(pull(data_frame, 3)) #changing the character vector to numeric
 as.numeric(pull(data_frame, 4)) #changing the factor vector to numeric</code></pre>
-<p>The as.numeric() function worked on the logical vector and the factor vector. For logical vectors the function converts ‘TRUE’ to ‘1’ and ‘FALSE’ TO ‘0’, respectively, which explains why the mean() function worked. For the factor vector the as.numeric() function assigns each factor level a number and converts the respective level to the respective number.</p>
+<p>The as.numeric() function worked on the logical vector and the factor vector. For logical vectors the function converts ‘TRUE’ to ‘1’ and ‘FALSE’ to ‘0’, respectively, which explains why the mean() function worked. For the factor vector the as.numeric() function assigns each factor level a number and converts the respective level to the respective number.</p>
 </div>
 </div>
 <div id="problem-2" class="section level2">
@@ -215,11 +221,11 @@ as.numeric(pull(data_frame, 4)) #changing the factor vector to numeric</code></p
 <pre class="r"><code>install.packages(&quot;palmerpenguins&quot;, repos = &quot;http://cran.us.r-project.org&quot;)</code></pre>
 <pre><code>## 
 ## The downloaded binary packages are in
-##  /var/folders/3j/ykjx7mfj6s15z81h4r3b7b4c0000gp/T//Rtmp3AMsLu/downloaded_packages</code></pre>
+##  /var/folders/3j/ykjx7mfj6s15z81h4r3b7b4c0000gp/T//RtmphLoDkx/downloaded_packages</code></pre>
 <pre class="r"><code>data(&quot;penguins&quot;, package = &quot;palmerpenguins&quot;)</code></pre>
 <div id="description-of-dataset" class="section level3">
 <h3>description of dataset</h3>
-<p>The penguins dataset contains <code>nrow(penguins)</code> rows and <code>ncol(penguins)</code> columns. Some of the important variables include the species, island, bill length and depth, flipper length, the body mass and the sex. The islands included in this dataset are “Torgensen,” “Dream,” and “Biscoe.” The species included are “Adelie,” “Chinstrap,” and “Gentoo.” The mean flipper length of penguins in this dataset is <code>mean(penguins$flipper_length_mm, na.rm=T)</code></p>
+<p>The penguins dataset contains 344 rows and 8 columns. Some of the important variables include the species, island, bill length and depth, flipper length, the body mass and the sex. The islands included in this dataset are “Torgensen,” “Dream,” and “Biscoe.” The species included are “Adelie,” “Chinstrap,” and “Gentoo.” The mean flipper length of penguins in this dataset is 200.9152047</p>
 </div>
 <div id="scatterplot" class="section level3">
 <h3>scatterplot</h3>
