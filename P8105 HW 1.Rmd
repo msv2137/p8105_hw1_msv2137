@@ -51,6 +51,7 @@ install.packages("palmerpenguins")
 data("penguins", package = "palmerpenguins")
 ```
 
+### description of dataset
 ```{r, include=FALSE} 
 #include=F because it is just for me to see the df and look at values to include in the description
 head(penguins)
@@ -58,3 +59,10 @@ penguins$species
 penguins$island
 ```
 The penguins dataset contains `nrow(penguins)` rows and `ncol(penguins)` columns. Some of the important variables include the species, island, bill length and depth, flipper length, the body mass and the sex. The islands included in this dataset are "Torgensen," "Dream," and "Biscoe." The species included are "Adelie," "Chinstrap," and "Gentoo." The mean flipper length of penguins in this dataset is `mean(penguins$flipper_length_mm, na.rm=T)`
+
+### scatterplot
+```{r}
+ggplot(penguins, aes(x=bill_length_mm, y=flipper_length_mm, color=species)) + geom_point()
+ggsave(file="penguins_scatterplot.png")
+```
+
