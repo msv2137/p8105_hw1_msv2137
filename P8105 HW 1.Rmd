@@ -44,7 +44,7 @@ The as.numeric() function worked on the logical vector and the factor vector. Fo
 ## Problem 2
 
 ```{r}
-install.packages("palmerpenguins")
+install.packages("palmerpenguins", repos = "http://cran.us.r-project.org")
 ```
 
 ```{r}
