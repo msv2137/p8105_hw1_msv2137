@@ -2,9 +2,7 @@
 title: "Homework 1"
 author: "Malvika Venkataraman"
 date: '2021-09-22'
-output:
-  html_document:
-    df_print: paged
+output: github_document
 ---
 
 ```{r, include = FALSE}
